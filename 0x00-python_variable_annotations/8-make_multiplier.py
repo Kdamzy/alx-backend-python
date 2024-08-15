@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
-'''Task 6's module.
-'''
-from typing import List, Union
+"""Contains a function that multiplies a float by multiplier"""
+from typing import Callable
 
 
-def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
-    '''Computes the sum of a list of integers and floating-point numbers.
-    '''
-    return float(sum(mxd_lst))
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
+    """Multiplies a float by multiplier
+    Args:
+        multiplier (float): The multiplier
+    Returns:
+        A function that multiplies a float by multiplier
+    """
+
+    def multiplier_func(number: float) -> float:
+        """Multiplies a float by multiplier"""
+        return multiplier * number
+
+    return multiplier_func
